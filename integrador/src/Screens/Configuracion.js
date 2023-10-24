@@ -6,10 +6,10 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MessageConstants from '../Constants/MessageConstants';
 const Stack = createStackNavigator();
 
-const Configuracion = () => {
-  const [emergencyPhoneNumber, setEmergencyPhoneNumber] = useState("");
-  const [videoURL, setVideoURL] = useState("");
-  const [musicURL, setMusicURL] = useState("");
+function Configuracion() {
+  const [emergencyPhoneNumber, setEmergencyPhoneNumber] = useState('');
+  const [videoURL, setVideoURL] = useState('');
+  const [musicURL, setMusicURL] = useState('');
 
   const handleOnPress = async () => {
     const configuracionExitosa = await ConfigService.checkConfig(emergencyPhoneNumber, videoURL,musicURL);
