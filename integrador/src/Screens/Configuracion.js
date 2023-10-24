@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Configuracion = () => {
+function Configuracion() {
   const [emergencyPhoneNumber, setEmergencyPhoneNumber] = useState('');
   const [videoURL, setVideoURL] = useState('');
   const [musicURL, setMusicURL] = useState('');
