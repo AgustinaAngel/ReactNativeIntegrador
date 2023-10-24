@@ -1,12 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import ImageScreen from "./src/screens/ImageScreen";
+import CameraScreen from "./src/screens/CameraScreen";
+import HomeScreen from "./src/screens/HomeScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+const Stack = createStackNavigator();
 
 export default function App() {
+  const [imageGaleria, setImageGaleria] = useState("");
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home">
+          {(props) => (
+            <HomeScreen {...props} setImageGaleria={setImageGaleria} />
+          )}
+        </Stack.Screen>
+
+        <Stack.Screen name="Camera" component={CameraScreen} />
+        <Stack.Screen name="ImageScreen">
+          {(props) => <ImageScreen {...props} imageUri={imageGaleria} />}
+        </Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
