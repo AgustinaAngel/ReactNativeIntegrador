@@ -6,7 +6,7 @@ const URLMUSICA_KEY = "CONFIG_urlMusica";
 class ConfigService {
 
     static checkConfig = async (emergencyPhoneNumber, videoURL,musicURL) => {
-        if (emergencyPhoneNumber != null && password === usuarioContra) {
+        if (emergencyPhoneNumber != null && videoURL != null && musicURL != null) {
           return true;
         } else {
           return false;

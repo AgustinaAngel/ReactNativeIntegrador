@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, Alert } from 'react-native';
 import ConfigService from "../Services/ConfigService";
 import appStyles from "../../styles.js";
 import { createStackNavigator } from "@react-navigation/stack";
+import MessageConstants from '../Constants/MessageConstants';
 const Stack = createStackNavigator();
 
 const Configuracion = () => {
@@ -11,14 +12,14 @@ const Configuracion = () => {
   const [musicURL, setMusicURL] = useState("");
 
   const handleOnPress = async () => {
-    const configuracionExitosa = await ConfigService.saveConfig(emergencyPhoneNumber, videoURL,musicURL);
+    const configuracionExitosa = await ConfigService.checkConfig(emergencyPhoneNumber, videoURL,musicURL);
 
     if (configuracionExitosa) {
       navigation.navigate("Home");
-      await ConfigService.almacenarCredenciales(usuario, clave);
+      await ConfigService.saveConfig(emergencyPhoneNumber, videoURL,musicURL);
     } else {
       const texto = MessageConstants.MSG_INGRESE_NUEVAMENTE;
-      Alert.alert(MessageConstants.MSG_LOGUEO_INCORRECTO, texto);
+      Alert.alert(MessageConstants.MSG_CONFIGURACION_INCORRECTA, texto);
     }
   };
 
@@ -59,8 +60,7 @@ const Configuracion = () => {
           />
       </View>
 
-
-      <Button title="Guardar Configuración" onPress={saveConfig} />
+      <Button title="Guardar Configuración" onPress={handleOnPress} />
     </View>
 
   );
