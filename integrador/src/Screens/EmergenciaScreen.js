@@ -5,7 +5,7 @@ import { check, PERMISSIONS, RESULTS, request } from 'react-native-permissions';
 import WhatsAppStickers from 'react-native-whatsapp-stickers';
 import { Linking } from 'react-native';
 
-const LlamadoEmergencia = () => {
+const EmergenciaScreen = () => {
   const emergencyPhoneNumber = '123456789'; 
 
   useEffect(() => {
@@ -57,4 +57,4 @@ const LlamadoEmergencia = () => {
   );
 };
 
-export default LlamadoEmergencia;
+export default EmergenciaScreen;
