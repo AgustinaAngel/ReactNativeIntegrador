@@ -14,14 +14,14 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Configuracion">
+      <Stack.Screen name="Configuracion" component={Configuracion} options={{ headerShown: false }}/>
       <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Configuracion" component={Configuracion} />
         <Stack.Screen name="CambioFondoScreen" component={CambioFondoScreen} />
         <Stack.Screen name="AcercaDeScreen" component={AcercaDeScreen} />
         <Stack.Screen name="EmergenciaScreen" component={EmergenciaScreen} />
         <Stack.Screen name="MultimediaScreen" component={MultimediaScreen} />
-
       </Stack.Navigator>
     </NavigationContainer>
   );
