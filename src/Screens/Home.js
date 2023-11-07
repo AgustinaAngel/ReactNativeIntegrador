@@ -102,17 +102,35 @@ export default function Home({ navigation }) {
   }, []);
 
 
+
+  const navigation = useNavigation();
+  const LlamadoDeEmergencia = () => {
+    navigation.navigate("EmergenciaScreen");
+  };
+
+  const CambioFondo = () => {
+    navigation.navigate("CambioFondoScreen");
+  };
+
+  const Multimedia = () => {
+    navigation.navigate("MultimediaScreen");
+  };
+
+  const AcercaDeScreen = () => {
+    navigation.navigate("AcercaDeScreen");
+  };
+
   return (
     <View style={appStyles.container}>
         <Text style={{backgroundColor:'white', fontSize: 20, width: '80%', textAlign:'center'}}>Agita el celular para llamar a tu contacto de emergencia <AntDesign name="shake" size={24} color="black" /></Text>
 
       <View style={styles.row}>
-        <Boton title="LlamadoDeEmergencia" icon="call" color="#ff0000" onPress={() => {/* Acción para el Botón 1 */}} />
-        <Boton title="CambioFondo" icon="md-phone-portrait" color="#00ff00" onPress={() => {/* Acción para el Botón 2 */}} />
+        <Boton title="LlamadoDeEmergencia" icon="call" color="#ff0000" onPress={() => {LlamadoDeEmergencia}} />
+        <Boton title="CambioFondo" icon="md-phone-portrait" color="#00ff00" onPress={() => {CambioFondo}} />
       </View>
       <View style={styles.row}>
-        <Boton title="VideoYMusica" icon="photo-video" color="#0000ff" onPress={() => {/* Acción para el Botón 3 */}} />
-        <Boton title="AcercaDeScreen" icon="questioncircle" color="#ffff00" onPress={() => {/* Acción para el Botón 4 */}} />
+        <Boton title="VideoYMusica" icon="photo-video" color="#0000ff" onPress={() => {Multimedia}} />
+        <Boton title="AcercaDeScreen" icon="questioncircle" color="#ffff00" onPress={() => {AcercaDeScreen}} />
       </View>
     </View>
   );
