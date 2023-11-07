@@ -6,6 +6,9 @@ import { Vibration } from 'react-native';
 import DataService from '../Services/DataService';
 import ModalMensaje from '../components/ModalMensaje'
 import MessageConstants from './../Constants/MessageConstants';
+import Boton from '../components/Button';
+import { AntDesign } from '@expo/vector-icons';
+import { Zocial } from '@expo/vector-icons';
 
 let dataService = new DataService();
 
@@ -100,30 +103,25 @@ export default function Home({ navigation }) {
 
 
   return (
-    <SafeAreaView style={[styles.container]}>
-      <ImageBackground source={{uri: image}} style={styles.image}>
-        <Text style={{backgroundColor:'white', fontSize: 20, width: '80%', textAlign:'center'}}>Agita el celular para llamar a tu contacto de emergencia</Text>
-        <ModalMensaje mensaje={mensajeModal} modalVisible={modalVisible} setModalVisible={setModalVisible} success={success}/>
-      </ImageBackground>
-      <Menu navigation={navigation} />
-    </SafeAreaView>
-  )
+    <View style={appStyles.container}>
+        <Text style={{backgroundColor:'white', fontSize: 20, width: '80%', textAlign:'center'}}>Agita el celular para llamar a tu contacto de emergencia <AntDesign name="shake" size={24} color="black" /></Text>
+
+      <View style={styles.row}>
+        <Boton title="LlamadoDeEmergencia" icon="call" color="#ff0000" onPress={() => {/* Acción para el Botón 1 */}} />
+        <Boton title="CambioFondo" icon="md-phone-portrait" color="#00ff00" onPress={() => {/* Acción para el Botón 2 */}} />
+      </View>
+      <View style={styles.row}>
+        <Boton title="VideoYMusica" icon="photo-video" color="#0000ff" onPress={() => {/* Acción para el Botón 3 */}} />
+        <Boton title="AcercaDeScreen" icon="questioncircle" color="#ffff00" onPress={() => {/* Acción para el Botón 4 */}} />
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100%',
-    width: '100%',
-    backgroundColor: '#fff',
-    textAlign:'center'
-  },
-  image: {
-    width: '100%',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 20,
   },
 });
