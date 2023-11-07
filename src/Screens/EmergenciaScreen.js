@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, Text, Alert, Platform } from 'react-native';
-import { Accelerometer } from 'react-native-sensors';
-import { check, PERMISSIONS, RESULTS, request } from 'react-native-permissions';
+import { Accelerometer } from 'expo-sensors';
+import { check, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import WhatsAppStickers from 'react-native-whatsapp-stickers';
 import { Linking } from 'react-native';
 
