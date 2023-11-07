@@ -4,13 +4,15 @@ import DataService from '../Services/DataService';
 import Boton from '../components/Button';
 import { AntDesign } from '@expo/vector-icons';
 import appStyles from '../styles/styles';
+import { createStackNavigator } from "@react-navigation/stack";
+
+
+const Stack = createStackNavigator();
 
 let dataService = new DataService();
 
 export default function Home({ navigation }) {
 
-
-  const navigation = useNavigation();
   const LlamadoDeEmergencia = () => {
     navigation.navigate("EmergenciaScreen");
   };
