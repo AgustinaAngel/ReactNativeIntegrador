@@ -4,6 +4,7 @@ import { Accelerometer } from 'expo-sensors';
 import { check, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import WhatsAppStickers from 'react-native-whatsapp-stickers';
 import { Linking } from 'react-native';
+import appStyles from '../styles/styles';
 
 const EmergenciaScreen = () => {
   const emergencyPhoneNumber = '123456789'; 

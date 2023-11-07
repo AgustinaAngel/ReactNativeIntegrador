@@ -113,6 +113,118 @@ const appStyles = {
     logInButton: {
       backgroundColor: "#f29100ff",
     },
+      row: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginBottom: 20,
+      },
+      container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100%',
+        width: '100%',
+      },
+      button: {
+        marginTop: 20,
+        width: 300,
+        height: 60,
+        backgroundColor: 'black',
+        borderRadius: 10
+      },
+      image: {
+        width: '100%',
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      cameraContainer: {
+        position: 'absolute',
+        bottom: 0,
+        flexDirection: 'row',
+        flex: 1,
+        width: '100%',
+        padding: 20,
+        justifyContent: 'space-between'
+      }, 
+      modalViewSuccess: {
+        margin: 20,
+        backgroundColor: 'green',
+        borderRadius: 20,
+        padding: 35,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    modalViewError: {
+        margin: 20,
+        backgroundColor: 'red',
+        borderRadius: 20,
+        padding: 35,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    button: {
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2,
+    },
+    buttonOpen: {
+        backgroundColor: '#F194FF',
+    },
+    buttonClose: {
+        backgroundColor: 'black',
+    },
+    textStyle: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    modalText: {
+        color: 'white',
+        marginBottom: 15,
+        textAlign: 'center',
+    },
+    menu: {
+      display: "flex",
+      backgroundColor: "white",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "100%",
+      height: 100,
+      position: "absolute",
+      bottom: 0,
+    },
+    text: {
+      textAlign: "center",
+      color: 'black',
+    },
+    button: {
+      width: "20%",
+      height: "100%",
+      display: "flex",
+      backgroundColor: "white",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      borderWidth: 1,
+      borderColor: "black",
+      paddingHorizontal: 10
+    },
   };
   
   export default appStyles;
