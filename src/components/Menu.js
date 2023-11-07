@@ -1,64 +1,35 @@
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import React from "react";
+import appStyles from "../styles/styles";
 
 export default function Menu({ navigation }) {
   return (
-    <View style={[styles.menu]}>
+    <View style={[appStyles.menu]}>
       <Pressable
-        style={[styles.button]}
+        style={[appStyles.button]}
         onPress={() => navigation.navigate("CambioFondoScreen")}
       >
-        <Text style={[styles.text]}>Fondo</Text>        
+        <Text style={[appStyles.text]}>Fondo</Text>        
       </Pressable>
       <Pressable
-        style={[styles.button]}
+        style={[appStyles.button]}
         onPress={() => navigation.navigate("MultimediaScreen")}
       >
-        <Text style={[styles.text]}>Home</Text>        
+        <Text style={[appStyles.text]}>Home</Text>        
       </Pressable>
       <Pressable
-        style={[styles.button]}
+        style={[appStyles.button]}
         onPress={() => navigation.navigate("AcercaDeScreen")}
       >
-        <Text style={[styles.text]}>Home</Text>        
+        <Text style={[appStyles.text]}>Home</Text>        
       </Pressable>
       <Pressable
-        style={[styles.button]}
+        style={[appStyles.button]}
         onPress={() => navigation.navigate("EmergenciaScreen")}
       >
-        <Text style={[styles.text]}>About</Text>        
+        <Text style={[appStyles.text]}>About</Text>        
       </Pressable>
       
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  menu: {
-    display: "flex",
-    backgroundColor: "white",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    height: 100,
-    position: "absolute",
-    bottom: 0,
-  },
-  text: {
-    textAlign: "center",
-    color: 'black',
-  },
-  button: {
-    width: "20%",
-    height: "100%",
-    display: "flex",
-    backgroundColor: "white",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    borderWidth: 1,
-    borderColor: "black",
-    paddingHorizontal: 10
-  },
-});

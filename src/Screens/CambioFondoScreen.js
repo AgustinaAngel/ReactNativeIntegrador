@@ -6,6 +6,7 @@ import * as ImagePicker from 'expo-image-picker';
 import DataService from '../Services/DataService';
 import Boton from './../components/Button'
 import { Camera, CameraType } from 'expo-camera';
+import appStyles from "../styles/styles";
 
 let dataService = new DataService()
 
@@ -61,9 +62,9 @@ export default function CambioFondoScreen({ navigation }) {
   }, []);
 
   return (
-    <SafeAreaView style={[styles.container]}>
-      <ImageBackground source={{ uri: image }} style={styles.image}>
-        <Boton onPress={elegirFoto} titulo='Elegi una foto de tu galeria' style={styles.button} />
+    <SafeAreaView style={[appStyles.container]}>
+      <ImageBackground source={{ uri: image }} style={appStyles.image}>
+        <Boton onPress={elegirFoto} titulo='Elegi una foto de tu galeria' style={appStyles.button} />
         {startCamera ? (
           <Camera
             style={{ flex: 1, width: "100%" }}
@@ -72,7 +73,7 @@ export default function CambioFondoScreen({ navigation }) {
             }}
           >
             <View
-              style={styles.cameraContainer}
+              style={appStyles.cameraContainer}
             >
               <View
                 style={{
@@ -96,7 +97,7 @@ export default function CambioFondoScreen({ navigation }) {
           </Camera>
         ) : (
           <>
-            <Boton onPress={abrirCamara} titulo='Sacar una foto' style={styles.button} />
+            <Boton onPress={abrirCamara} titulo='Sacar una foto' style={appStyles.button} />
           </>
         )}
       </ImageBackground>
@@ -104,35 +105,3 @@ export default function CambioFondoScreen({ navigation }) {
     </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100%',
-    width: '100%',
-  },
-  button: {
-    marginTop: 20,
-    width: 300,
-    height: 60,
-    backgroundColor: 'black',
-    borderRadius: 10
-  },
-  image: {
-    width: '100%',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  cameraContainer: {
-    position: 'absolute',
-    bottom: 0,
-    flexDirection: 'row',
-    flex: 1,
-    width: '100%',
-    padding: 20,
-    justifyContent: 'space-between'
-  }
-});
