@@ -125,12 +125,14 @@ const appStyles = {
         height: '100%',
         width: '100%',
       },
-      button: {
+      buttonGeneral: {
         marginTop: 20,
-        width: 300,
+        width: 110,
         height: 60,
-        backgroundColor: 'black',
-        borderRadius: 10
+        backgroundColor: 'grey',
+        color: 'white',
+        borderRadius: 10,
+        justifyContent: 'space-around'
       },
       image: {
         width: '100%',
@@ -177,11 +179,6 @@ const appStyles = {
         shadowRadius: 4,
         elevation: 5,
     },
-    button: {
-        borderRadius: 20,
-        padding: 10,
-        elevation: 2,
-    },
     buttonOpen: {
         backgroundColor: '#F194FF',
     },
@@ -212,18 +209,6 @@ const appStyles = {
     text: {
       textAlign: "center",
       color: 'black',
-    },
-    button: {
-      width: "20%",
-      height: "100%",
-      display: "flex",
-      backgroundColor: "white",
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "center",
-      borderWidth: 1,
-      borderColor: "black",
-      paddingHorizontal: 10
     },
   };
   

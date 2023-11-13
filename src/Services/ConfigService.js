@@ -2,6 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const NUMEROTELEFONO_KEY = "CONFIG_telefono";
 const URLVIDEO_KEY = "CONFIG_urlVideo";
 const URLMUSICA_KEY = "CONFIG_urlMusica";
+const BACKGROUND_KEY='background';
 
 class ConfigService {
 
@@ -22,6 +23,20 @@ class ConfigService {
         console.error('Error al guardar la configuración:', error);
     }
   };
+  static guardarBackground = async(background) => { 
+    try {    
+        await AsyncStorage.setItem(BACKGROUND_KEY, background);  
+        return true;
+    } catch(e) {    
+        console.log(e);
+        return false;
+    }
+}; 
 
+static obtenerBackground = async() => { 
+    let storedBackground = await AsyncStorage.getItem(BACKGROUND_KEY);
+    const returnValue = storedBackground; 
+    return returnValue; 
+}; 
 }
 export default ConfigService;

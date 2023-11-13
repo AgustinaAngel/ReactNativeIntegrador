@@ -5,8 +5,8 @@ import appStyles from '../styles/styles';
 
 export default function Boton({ title, onPress, icon, color }) {
   return (
-    <TouchableOpacity onPress={onPress} style={appStyles.button}>
-      <Entypo name={icon} size={28} color={color ? color : '#f1f1f1'} />
+    <TouchableOpacity onPress={onPress} style={appStyles.buttonGeneral}>
+    {/*  <Entypo name={icon} size={28} color={color ? color : '#f1f1f1'} />*/}
       <Text style={appStyles.text}>{title}</Text>
     </TouchableOpacity>
   );

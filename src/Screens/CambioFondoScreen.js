@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react';
 import React from 'react'
 import Menu from '../components/Menu'
 import * as ImagePicker from 'expo-image-picker';
-import DataService from '../Services/DataService';
+import ConfigService from "../Services/ConfigService";
 import Boton from './../components/Button'
 import { Camera, CameraType } from 'expo-camera';
 import appStyles from "../styles/styles";
 
-let dataService = new DataService()
+
 
 export default function CambioFondoScreen({ navigation }) {
 
@@ -26,9 +26,13 @@ export default function CambioFondoScreen({ navigation }) {
     });
 
     if (!result.canceled) {
-      await dataService.guardarBackground(JSON.stringify(result.assets[0]));
-      let backgroundImage = JSON.parse(await dataService.obtenerBackground());
-      setImage(backgroundImage.uri);
+      let obj = result.assets[0];
+      console.log('elegirFoto');
+      console.log(obj);
+      await ConfigService.guardarBackground(JSON.stringify(obj));
+      //let backgroundImage = JSON.parse(await ConfigService.obtenerBackground());
+      setImage(obj.uri);
+      console.log(obj.uri);
     }
   };
 
@@ -44,15 +48,16 @@ export default function CambioFondoScreen({ navigation }) {
   const sacarFoto = async () => {
     if (!camera) return
     const photo = await camera.takePictureAsync();
-    await dataService.guardarBackground(JSON.stringify(photo));
-    let backgroundImage = JSON.parse(await dataService.obtenerBackground());
+    console.log(photo);
+    await ConfigService.guardarBackground(JSON.stringify(photo));
+    let backgroundImage = JSON.parse(await ConfigService.obtenerBackground());
     setImage(backgroundImage.uri);
     setStartCamera(false)
   }
 
   let cargarFondo = async () => {
-    if (JSON.parse(await dataService.obtenerBackground())) {
-      let backgroundImage = JSON.parse(await dataService.obtenerBackground());
+    if (JSON.parse(await ConfigService.obtenerBackground())) {
+      let backgroundImage = JSON.parse(await ConfigService.obtenerBackground());
       setImage(backgroundImage.uri);
     }
   }
@@ -62,9 +67,9 @@ export default function CambioFondoScreen({ navigation }) {
   }, []);
 
   return (
-    <SafeAreaView style={[appStyles.container]}>
+    <View style={appStyles.container}>
       <ImageBackground source={{ uri: image }} style={appStyles.image}>
-        <Boton onPress={elegirFoto} titulo='Elegi una foto de tu galeria' style={appStyles.button} />
+        <Boton title="Elegi una foto de tu galeria"  color="#ffff00" onPress={elegirFoto}  />
         {startCamera ? (
           <Camera
             style={{ flex: 1, width: "100%" }}
@@ -97,11 +102,12 @@ export default function CambioFondoScreen({ navigation }) {
           </Camera>
         ) : (
           <>
-            <Boton onPress={abrirCamara} titulo='Sacar una foto' style={appStyles.button} />
+             <Boton title="Sacar una foto"  color="#ffff00" onPress={abrirCamara}  />
+           
           </>
         )}
       </ImageBackground>
       <Menu navigation={navigation} />
-    </SafeAreaView>
+      </View>
   )
 }

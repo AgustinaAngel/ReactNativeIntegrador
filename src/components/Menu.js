@@ -1,35 +1,32 @@
-import { View, Text, StyleSheet, Pressable, Image } from "react-native";
-import React from "react";
-import appStyles from "../styles/styles";
 
-export default function Menu({ navigation }) {
+
+import React from "react";
+import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import appStyles from "../styles/styles.js";
+const Menu = () => {
+  const navigation = useNavigation(); 
+
   return (
-    <View style={[appStyles.menu]}>
-      <Pressable
-        style={[appStyles.button]}
-        onPress={() => navigation.navigate("CambioFondoScreen")}
-      >
-        <Text style={[appStyles.text]}>Fondo</Text>        
-      </Pressable>
-      <Pressable
-        style={[appStyles.button]}
-        onPress={() => navigation.navigate("MultimediaScreen")}
-      >
-        <Text style={[appStyles.text]}>Home</Text>        
-      </Pressable>
-      <Pressable
-        style={[appStyles.button]}
-        onPress={() => navigation.navigate("AcercaDeScreen")}
-      >
-        <Text style={[appStyles.text]}>Home</Text>        
-      </Pressable>
-      <Pressable
-        style={[appStyles.button]}
-        onPress={() => navigation.navigate("EmergenciaScreen")}
-      >
-        <Text style={[appStyles.text]}>About</Text>        
-      </Pressable>
-      
+    <View style={appStyles.menuContainer}>
+      <TouchableOpacity onPress={() => navigation.navigate("CambioFondoScreen")}>
+      <Text style={appStyles.text}>Fondo</Text>  
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => navigation.navigate("MultimediaScreen")}>
+      <Text style={appStyles.text}>Multimedia</Text>  
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => navigation.navigate("AcercaDeScreen")}>
+      <Text style={appStyles.text}>Acerca</Text>  
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => navigation.navigate("EmergenciaScreen")}>
+      <Text style={appStyles.text}>Emergencia</Text>  
+      </TouchableOpacity>
+
     </View>
   );
-}
+};
+
+export default Menu;

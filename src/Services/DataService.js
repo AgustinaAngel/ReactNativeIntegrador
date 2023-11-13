@@ -27,21 +27,7 @@ export default class DataService{
         }
     }; 
 
-    guardarBackground = async(background) => { 
-        try {    
-            await AsyncStorage.setItem(BACKGROUND_KEY, background);  
-            return true;
-        } catch(e) {    
-            console.log(e);
-            return false;
-        }
-    }; 
-
-    obtenerBackground = async() => { 
-        let storedBackground = await AsyncStorage.getItem(BACKGROUND_KEY);
-        const returnValue = storedBackground; 
-        return returnValue; 
-    }; 
+   
 
     obtenerDatos = async() => { 
         let storedTelefono = await AsyncStorage.getItem(TELEFONO_KEY);

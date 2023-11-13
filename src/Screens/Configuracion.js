@@ -1,15 +1,16 @@
-import React, { useState, useRef } from "react";
-import { View, Text, TextInput, Button, Alert } from "react-native";
+import React, { useState, useRef,useEffect } from "react";
+import { View, Text, TextInput, Button, Alert, ImageBackground } from "react-native";
 import ConfigService from "../Services/ConfigService";
 import appStyles from "../styles/styles";
 import { createStackNavigator } from "@react-navigation/stack";
 import MessageConstants from "./../Constants/MessageConstants";
 const Stack = createStackNavigator();
 
-function Configuracion() {
+function Configuracion({ navigation }) {
   const [emergencyPhoneNumber, setEmergencyPhoneNumber] = useState("");
   const [videoURL, setVideoURL] = useState("");
   const [musicURL, setMusicURL] = useState("");
+  const [fondo, setFondo] = useState("");
 
   const handleOnPress = async () => {
     const configuracionExitosa = await ConfigService.checkConfig(
@@ -27,8 +28,21 @@ function Configuracion() {
     }
   };
 
+  useEffect(() => {
+    (async () => {
+      const fondo =  await ConfigService.obtenerBackground();
+    if (fondo ==""){
+      setFondo("");
+    }else{
+      setFondo(fondo);
+    }
+    })();
+  }, []);
+
+
   return (
     <View style={appStyles.container}>
+        <ImageBackground source={{ uri: fondo }} style={appStyles.image}>
       <Text>Número de Teléfono de Emergencia:</Text>
       <View style={appStyles.inputContainer}>
         <TextInput
@@ -57,12 +71,13 @@ function Configuracion() {
           style={appStyles.input}
           placeholder="Ingresa la URL de música de fondo"
           returnKeyType="next"
-          value={videoURL}
+          value={musicURL}
           onChangeText={(text) => setMusicURL(text)}
         />
       </View>
 
       <Button title="Guardar Configuración" onPress={handleOnPress} />
+      </ImageBackground>
     </View>
   );
 }
