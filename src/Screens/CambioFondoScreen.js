@@ -8,8 +8,6 @@ import Boton from './../components/Button'
 import { Camera, CameraType } from 'expo-camera';
 import appStyles from "../styles/styles";
 
-
-
 export default function CambioFondoScreen({ navigation }) {
 
   const [image, setImage] = useState(null);

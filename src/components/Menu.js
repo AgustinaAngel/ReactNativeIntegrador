@@ -21,9 +21,7 @@ const Menu = () => {
       <Text style={appStyles.text}>Acerca</Text>  
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate("EmergenciaScreen")}>
-      <Text style={appStyles.text}>Emergencia</Text>  
-      </TouchableOpacity>
+      
 
     </View>
   );

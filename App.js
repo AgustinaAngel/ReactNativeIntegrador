@@ -26,7 +26,7 @@ export default function App() {
 
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="CambioFondoScreen" component={CambioFondoScreen} />
-        <Stack.Screen name="AcercaDeScreen" component={AcercaDeScreen} />
+       <Stack.Screen name="AcercaDeScreen" component={AcercaDeScreen} />
         <Stack.Screen name="MultimediaScreen" component={MultimediaScreen} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -33,10 +33,20 @@ class ConfigService {
     }
 }; 
 
-static obtenerBackground = async() => { 
-    let storedBackground = await AsyncStorage.getItem(BACKGROUND_KEY);
-    const returnValue = storedBackground; 
+static obtenerVideo = async() => { 
+    let storedVideo = await AsyncStorage.getItem(URLVIDEO_KEY);
+    const returnValue = storedVideo; 
     return returnValue; 
+}; 
+static obtenerMusica = async() => { 
+  let storedMusica = await AsyncStorage.getItem(URLMUSICA_KEY);
+  const returnValue = storedMusica; 
+  return returnValue; 
+}; 
+static obtenerBackground = async() => { 
+  let storedBackground = await AsyncStorage.getItem(BACKGROUND_KEY);
+  const returnValue = storedBackground; 
+  return returnValue; 
 }; 
 }
 export default ConfigService;

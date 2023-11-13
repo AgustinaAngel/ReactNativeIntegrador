@@ -1,6 +1,5 @@
 import { View, Text, SafeAreaView, StyleSheet, Linking, Alert, Platform, ImageBackground } from 'react-native'
 import React, { useState, useEffect } from 'react';
-import DataService from '../Services/DataService';
 import Boton from '../components/Button';
 import { AntDesign } from '@expo/vector-icons';
 import appStyles from '../styles/styles';
@@ -9,7 +8,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
-let dataService = new DataService();
 
 export default function Home({ navigation }) {
 /*
