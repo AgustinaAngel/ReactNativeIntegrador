@@ -95,7 +95,7 @@ export default function MultimediaScreen({ navigation }) {
   return (
     <View style={appStyles.container}>
      <ImageBackground source={{ uri: fondo }} style={appStyles.image}>
-      <Text style={{ backgroundColor: 'white', fontSize: 20, width: '80%', textAlign: 'center' }}>MultimediaScreen</Text>
+      <Text style={{ backgroundColor: 'white', fontSize: 20, width: '80%', textAlign: 'center' }}>¡Reproducí Video y Audio!</Text>
         {URLvideo ? (
           <>
             <Video
