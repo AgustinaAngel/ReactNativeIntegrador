@@ -36,13 +36,13 @@ class ConfigService {
         }
       };
       
-      obtenerVideo = async () => {
+      static obtenerVideo = async () => {
         let storedVideo = await AsyncStorage.getItem(URLVIDEO_KEY);
         console.log('Obteniendo video:', storedVideo);
         return storedVideo;
       };
       
-      obtenerMusica = async () => {
+      static obtenerMusica = async () => {
         let storedMusica = await AsyncStorage.getItem(URLMUSICA_KEY);
         console.log('Obteniendo música:', storedMusica);
         return storedMusica;

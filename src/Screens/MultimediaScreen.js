@@ -26,21 +26,32 @@ export default function MultimediaScreen({ navigation }) {
   }, []);
 
   useEffect(() => {
-    (async () => {
-      let urlVideo = await ConfigService.obtenerVideo();
-      console.log("VIDEO:", urlVideo);
-      setVideo(urlVideo);
-    })();
-  }, []);
+    const obtenerVideo= async () => {
+      try {
+        let urlVideo= await ConfigService.obtenerVideo();
+        console.log("VIDEO:", urlVideo);
+        setVideo(urlVideo);
+      } catch (error) {
+        console.error('Error al obtener y configurar la música:', error);
+      }
+    };
+    obtenerVideo();
+
+  }, []); 
   
   useEffect(() => {
-    (async () => {
-      let urlMusica = await ConfigService.obtenerMusica();
-      console.log("MUSICA:", urlMusica);
-      setMusica(urlMusica);
-    })();
-  }, []);  
+    const obtenerMusica = async () => {
+      try {
+        let urlMusica = await ConfigService.obtenerMusica();
+        console.log("MUSICA:", urlMusica);
+        setMusica(urlMusica);
+      } catch (error) {
+        console.error('Error al obtener y configurar la música:', error);
+      }
+    };
+    obtenerMusica();
 
+  }, []); 
 
   let reproduceSound = async () => {
     console.log()
@@ -69,15 +80,6 @@ export default function MultimediaScreen({ navigation }) {
       setFondo(backgroundImage.uri);
     }
   }
-
-
-  let cargarVideoMusica = async () => {
-    if (JSON.parse(await ConfigService.obtenerBackground())) {
-      let backgroundImage = JSON.parse(await ConfigService.obtenerBackground());
-      setFondo(backgroundImage.uri);
-    }
-  }
-
 
   useEffect(() => {
     if (sound) {
@@ -109,8 +111,7 @@ export default function MultimediaScreen({ navigation }) {
               isLooping
               onPlaybackStatusUpdate={status => setStatus(() => status)}
             />
-            <Boton onPress={() => status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()} titulo={status.isPlaying ? 'Pausar video' : 'Reproducir video'} style={styles.button1} />
-            
+            <Boton title={status.isPlaying ? 'Pausar video' : 'Reproducir video'}  onPress={() => status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()}  />
           </>
         ) : (
           <>
@@ -119,7 +120,7 @@ export default function MultimediaScreen({ navigation }) {
         )}
         {URLmusica ? (
           <>
-            <Boton onPress={reproduceSound} titulo={isSoundReproducing ? 'Pausar audio' : 'Reproducir audio'} style={styles.button2} />
+            <Boton title={isSoundReproducing ? 'Pausar audio' : 'Reproducir audio'}  onPress={reproduceSound} />
           </>
         ) : (
           <>
