@@ -14,39 +14,47 @@ class ConfigService {
         }
       };
  
-  static saveConfig = async (emergencyPhoneNumber, videoURL,musicURL) => {
-    try {
-        await AsyncStorage.setItem(NUMEROTELEFONO_KEY, emergencyPhoneNumber);
-        await AsyncStorage.setItem(URLVIDEO_KEY, videoURL);
-        await AsyncStorage.setItem(URLMUSICA_KEY, musicURL);
-    } catch (error) {
-        console.error('Error al guardar la configuración:', error);
-    }
-  };
-  static guardarBackground = async(background) => { 
-    try {    
-        await AsyncStorage.setItem(BACKGROUND_KEY, background);  
-        return true;
-    } catch(e) {    
-        console.log(e);
-        return false;
-    }
-}; 
-
-static obtenerVideo = async() => { 
-    let storedVideo = await AsyncStorage.getItem(URLVIDEO_KEY);
-    const returnValue = storedVideo; 
-    return returnValue; 
-}; 
-static obtenerMusica = async() => { 
-  let storedMusica = await AsyncStorage.getItem(URLMUSICA_KEY);
-  const returnValue = storedMusica; 
-  return returnValue; 
-}; 
-static obtenerBackground = async() => { 
-  let storedBackground = await AsyncStorage.getItem(BACKGROUND_KEY);
-  const returnValue = storedBackground; 
-  return returnValue; 
-}; 
-}
+      static saveConfig = async (emergencyPhoneNumber, videoURL, musicURL) => {
+        try {
+          console.log('Guardando configuración:', emergencyPhoneNumber, videoURL, musicURL);
+          await AsyncStorage.setItem(NUMEROTELEFONO_KEY, emergencyPhoneNumber);
+          await AsyncStorage.setItem(URLVIDEO_KEY, videoURL);
+          await AsyncStorage.setItem(URLMUSICA_KEY, musicURL);
+        } catch (error) {
+          console.error('Error al guardar la configuración:', error);
+        }
+      };
+      
+      static guardarBackground = async (background) => {
+        try {
+          console.log('Guardando fondo:', background);
+          await AsyncStorage.setItem(BACKGROUND_KEY, background);
+          return true;
+        } catch (e) {
+          console.log(e);
+          return false;
+        }
+      };
+      
+      obtenerVideo = async () => {
+        let storedVideo = await AsyncStorage.getItem(URLVIDEO_KEY);
+        console.log('Obteniendo video:', storedVideo);
+        const returnValue = storedVideo;
+        return returnValue;
+      };
+      
+      obtenerMusica = async () => {
+        let storedMusica = await AsyncStorage.getItem(URLMUSICA_KEY);
+        console.log('Obteniendo música:', storedMusica);
+        const returnValue = storedMusica;
+        return returnValue;
+      };
+      
+      static obtenerBackground = async () => {
+        let storedBackground = await AsyncStorage.getItem(BACKGROUND_KEY);
+        console.log('Obteniendo fondo:', storedBackground);
+        const returnValue = storedBackground;
+        return returnValue;
+      };
+    }      
 export default ConfigService;
