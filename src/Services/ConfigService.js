@@ -39,16 +39,15 @@ class ConfigService {
       obtenerVideo = async () => {
         let storedVideo = await AsyncStorage.getItem(URLVIDEO_KEY);
         console.log('Obteniendo video:', storedVideo);
-        const returnValue = storedVideo;
-        return returnValue;
+        return storedVideo;
       };
       
       obtenerMusica = async () => {
         let storedMusica = await AsyncStorage.getItem(URLMUSICA_KEY);
         console.log('Obteniendo música:', storedMusica);
-        const returnValue = storedMusica;
-        return returnValue;
+        return storedMusica;
       };
+      
       
       static obtenerBackground = async () => {
         let storedBackground = await AsyncStorage.getItem(BACKGROUND_KEY);

@@ -28,20 +28,18 @@ export default function MultimediaScreen({ navigation }) {
   useEffect(() => {
     (async () => {
       let urlVideo = await ConfigService.obtenerVideo();
-      console.log("VIDEO");
-      console.log(urlVideo);
+      console.log("VIDEO:", urlVideo);
       setVideo(urlVideo);
     })();
   }, []);
-
+  
   useEffect(() => {
     (async () => {
       let urlMusica = await ConfigService.obtenerMusica();
-      console.log("MUSICA");
-      console.log(urlMusica);
+      console.log("MUSICA:", urlMusica);
       setMusica(urlMusica);
     })();
-  }, []);
+  }, []);  
 
 
   let reproduceSound = async () => {
