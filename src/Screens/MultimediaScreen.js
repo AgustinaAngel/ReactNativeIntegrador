@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { View, Text, SafeAreaView, StyleSheet, Linking, Alert, Platform, ImageBackground } from 'react-native'
 import { createStackNavigator } from "@react-navigation/stack";
 import ConfigService from "../Services/ConfigService";
-//import appStyles from '../styles/styles';
+import appStyles from '../styles/styles';
 import Menu from '../components/Menu'
 import Boton from './../components/Button'
 import { Video, ResizeMode, Audio } from 'expo-av';
