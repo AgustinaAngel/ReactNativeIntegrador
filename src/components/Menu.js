@@ -9,6 +9,11 @@ const Menu = () => {
 
   return (
     <View style={appStyles.menuContainer}>
+
+      <TouchableOpacity onPress={() => navigation.navigate("EmergenciaScreen")}>
+      <Text style={appStyles.text}>Llamado</Text>  
+      </TouchableOpacity>
+
       <TouchableOpacity onPress={() => navigation.navigate("CambioFondoScreen")}>
       <Text style={appStyles.text}>Fondo</Text>  
       </TouchableOpacity>
@@ -21,6 +26,7 @@ const Menu = () => {
       <Text style={appStyles.text}>Acerca</Text>  
       </TouchableOpacity>
 
+     
       
 
     </View>
