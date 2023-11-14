@@ -1,40 +1,80 @@
-import { View, Text, SafeAreaView, StyleSheet, Linking, Alert, Platform, ImageBackground } from 'react-native'
-import React, { useState, useEffect } from 'react';
-import Boton from '../components/Button';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import appStyles from '../styles/styles';
-import { createStackNavigator } from "@react-navigation/stack";
-const Stack = createStackNavigator();
+
 export default function Home({ navigation }) {
   
-  const CambioFondo = async () => {
+  const CambioFondo = () => {
     navigation.navigate("CambioFondoScreen");
   };
 
-  const Multimedia = async () => {
+  const Multimedia = () => {
     navigation.navigate("MultimediaScreen");
   };
 
-  const AcercaDeScreen= async () => {
+  const AcercaDeScreen = () => {
     navigation.navigate("AcercaDeScreen");
   };
 
-  const LLamadoEmergencia= async () => {
+  const LLamadoEmergencia = () => {
     navigation.navigate("EmergenciaScreen");
   };
 
   return (
-    <View style={appStyles.container}>
-        <Text style={{backgroundColor:'white', fontSize: 20, width: '80%', textAlign:'center'}}>Agita el celular para llamar a tu contacto de emergencia <AntDesign name="shake" size={24} color="black" /></Text>
-      <View style={appStyles.row}>
-        <Boton title="CambioFondo"  onPress={CambioFondo} />
-        <Boton title="Llamado"  onPress={LLamadoEmergencia} />
+    <View style={styles.container}>
+      <Text style={styles.title}> ¡Agita el celular para llamar a tu contacto de emergencia! </Text>
+      <View style={styles.row}>
+        <TouchableOpacity style={styles.button} onPress={CambioFondo}>
+          <Text style={styles.buttonText}>Cambio de Fondo</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={LLamadoEmergencia}>
+          <Text style={styles.buttonText}>Llamado</Text>
+        </TouchableOpacity>
       </View>
-      <View style={appStyles.row}>
-        <Boton title="VideoYMusica"  onPress={Multimedia} />
-        <Boton title="AcercaDeScreen"  onPress={AcercaDeScreen} />
+      <View style={styles.row}>
+        <TouchableOpacity style={styles.button} onPress={Multimedia}>
+          <Text style={styles.buttonText}>Video y Música</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={AcercaDeScreen}>
+          <Text style={styles.buttonText}>Acerca de</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    margin: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  title: {
+    color: '#FF00FB',
+    fontSize: 20,
+    width: '80%',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 20,
+    width: '100%',
+  },
+  button: {
+    backgroundColor: '#FF00FB',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+    height: 100,
+    width: 150,
+  },
+  buttonText: {
+    color: 'pink',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+});

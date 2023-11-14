@@ -16,8 +16,6 @@ export default function AcercaDe({ navigation }) {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
     const [scanQR, setScanQR] = useState(false);
-
-
     let loadBackground = async () => {
         if (JSON.parse(await data.obtenerBackground())) {
             let backgroundImage = JSON.parse(await data.obtenerBackground());
@@ -31,7 +29,7 @@ export default function AcercaDe({ navigation }) {
 
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
-        alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+        alert(`¡¡¡Escaneado correctamente!!! La informacion es: ${data}`);
     };
 
     useEffect(() => {

@@ -109,3 +109,4 @@ export default function CambioFondoScreen({ navigation }) {
       </View>
   )
 }
+
