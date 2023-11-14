@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { View, Text, SafeAreaView, StyleSheet, Linking, Alert, Platform, ImageBackground } from 'react-native'
 import { createStackNavigator } from "@react-navigation/stack";
 import ConfigService from "../Services/ConfigService";
-//import appStyles from '../styles/styles';
+import appStyles from '../styles/styles';
 import Menu from '../components/Menu'
 import Boton from './../components/Button'
 import { Video, ResizeMode, Audio } from 'expo-av';
@@ -27,15 +27,16 @@ export default function MultimediaScreen({ navigation }) {
 
   useEffect(() => {
     (async () => {
-      let urlVideo = JSON.parse(await ConfigService.obtenerVideo());
+      let urlVideo = await ConfigService.obtenerVideo();
       console.log("VIDEO");
       console.log(urlVideo);
       setVideo(urlVideo);
     })();
   }, []);
+
   useEffect(() => {
     (async () => {
-      let urlMusica = JSON.parse(await ConfigService.obtenerMusica());
+      let urlMusica = await ConfigService.obtenerMusica();
       console.log("MUSICA");
       console.log(urlMusica);
       setMusica(urlMusica);
@@ -70,6 +71,15 @@ export default function MultimediaScreen({ navigation }) {
       setFondo(backgroundImage.uri);
     }
   }
+
+
+  let cargarVideoMusica = async () => {
+    if (JSON.parse(await ConfigService.obtenerBackground())) {
+      let backgroundImage = JSON.parse(await ConfigService.obtenerBackground());
+      setFondo(backgroundImage.uri);
+    }
+  }
+
 
   useEffect(() => {
     if (sound) {
