@@ -4,16 +4,8 @@ import Boton from '../components/Button';
 import { AntDesign } from '@expo/vector-icons';
 import appStyles from '../styles/styles';
 import { createStackNavigator } from "@react-navigation/stack";
-
-
 const Stack = createStackNavigator();
-
-
 export default function Home({ navigation }) {
-/*
-  const LlamadoDeEmergencia = () => {
-    navigation.navigate("EmergenciaScreen");
-  };*/
   
   const CambioFondo = async () => {
     navigation.navigate("CambioFondoScreen");
@@ -27,13 +19,16 @@ export default function Home({ navigation }) {
     navigation.navigate("AcercaDeScreen");
   };
 
+  const LLamadoEmergencia= async () => {
+    navigation.navigate("EmergenciaScreen");
+  };
+
   return (
     <View style={appStyles.container}>
         <Text style={{backgroundColor:'white', fontSize: 20, width: '80%', textAlign:'center'}}>Agita el celular para llamar a tu contacto de emergencia <AntDesign name="shake" size={24} color="black" /></Text>
-
       <View style={appStyles.row}>
-        {/*<Boton title="LlamadoDeEmergencia"  color="#ff0000" onPress={() => {LlamadoDeEmergencia}} />*/}
         <Boton title="CambioFondo"  onPress={CambioFondo} />
+        <Boton title="Llamado"  onPress={LLamadoEmergencia} />
       </View>
       <View style={appStyles.row}>
         <Boton title="VideoYMusica"  onPress={Multimedia} />
